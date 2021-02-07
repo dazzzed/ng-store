@@ -1,0 +1,15 @@
+{
+  "$schema": "../../../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "store": {
+      "description": "Add store to the project.",
+      "factory": "./store/index#storeModule",
+      "schema": "./store/schema.json"
+    },
+    "module": {
+      "description": "Generate a store module in the project.",
+      "factory": "./module/index#storeModule",
+      "schema": "./module/schema.json"
+    }
+  }
+}

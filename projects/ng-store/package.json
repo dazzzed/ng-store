@@ -1,0 +1,24 @@
+{
+  "name": "ng-store",
+  "version": "0.0.1",
+  "schematics": "./schematics/collection.json",
+  "ng-add": {
+    "save": "devDependencies"
+  },
+  "scripts": {
+    "ng": "ng",
+    "build": "../../node_modules/.bin/tsc -p tsconfig.schematics.json",
+    "copy:schemas": "rsync -R schematics/*/schema.json ../../dist/ng-store/",
+    "copy:folders": "rsync -R schematics/*/files/*/** ../../dist/ng-store/",
+    "copy:files": "rsync -R schematics/*/files/** ../../dist/ng-store/",
+    "copy:collection": "cp schematics/collection.json ../../dist/ng-store/schematics/collection.json",
+    "postbuild": "npm run copy:schemas && npm run copy:folders && npm run copy:files && npm run copy:folders && npm run copy:collection"
+  },
+  "peerDependencies": {
+    "@angular/common": "^9.1.13",
+    "@angular/core": "^9.1.13"
+  },
+  "dependencies": {
+    "tslib": "^1.10.0"
+  }
+}
