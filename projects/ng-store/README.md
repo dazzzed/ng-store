@@ -4,7 +4,7 @@ The ng-store mixes the Vuex approach to application state management and the rxj
 
 ## Install
 
-Run `@dazzed/ng-store`
+Run `npm i @dazzed/ng-store`
 
 ## Setup Store
 
