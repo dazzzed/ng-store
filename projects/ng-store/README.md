@@ -2,6 +2,31 @@
 
 The ng-store mixes the Vuex approach to application state management and the rxjs Observables in angular modules, as store modules.
 
+Here you have the final architecture of a ng-store module:
+
+```
+app
+|
+|-- store
+    |
+    |-- store.module.ts
+    |-- {entityName}
+        |
+        |-- actions.service.ts
+        |-- getters.service.ts
+        |-- mutations.service.ts
+        |-- news.module.ts
+        |-- {EntityName}.ts
+```
+
+Here's a quick definition of what each of that services are menat to do:
+
+**actions**: Makes calls to the HTTP services and sends the data in the response to the associated mutation.
+
+**mutations**: Updates or makes mutations to the current state of the entity.
+
+**getters**: Gives you access to the entity data in the store through a rxjs _BehaviorSubject_.
+
 ## Install
 
 Run `npm i @dazzed/ng-store`
@@ -10,13 +35,40 @@ Run `npm i @dazzed/ng-store`
 
 Run `ng generate @dazzed/ng-store:store`
 
+Now you should have the main store folder structure in your app root, where you can generate the ng-store modules for all entities in your app:
+
+```
+app
+|
+|-- store
+    |
+    |-- store.module.ts
+```
+
 ## Generate Store Modules
 
 Run `ng generate @dazzed/ng-store:module --name {entityName}`
 
+An now you should have the new entity module in the store:
+
+```
+app
+|
+|-- store
+    |
+    |-- store.module.ts
+    |-- {entityName}
+        |
+        |-- actions.service.ts
+        |-- getters.service.ts
+        |-- mutations.service.ts
+        |-- news.module.ts
+        |-- {EntityName}.ts
+```
+
 ## Update Model
 
-Update the entity model and initial state by going tothe new module folder inside the store and to the file {entityName}.ts and on this class define properties of this entity and the initial value of each oone of them.
+Update the entity model and initial state by going to the new module folder inside the store, to the file {entityName}.ts and in this Class define the properties of this entity and the initial value of each one of them.
 
 ## Setup HTTP requests service
 
@@ -28,8 +80,12 @@ You can also, in the `getters.service`, create more specific or filtered getters
 
 In your component's `.ts` file:
 
-> getter$ = getters.service.getter$
+```typescript
+getter$ = getters.service.getter$;
+```
 
 In your component's template:
 
-> {{ getter$ | async }}
+```html
+{{ getter$ | async }}
+```

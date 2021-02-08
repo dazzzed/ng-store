@@ -1,6 +1,6 @@
 {
   "name": "@dazzed/ng-store",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "schematics": "./schematics/collection.json",
   "ng-add": {
     "save": "devDependencies"
