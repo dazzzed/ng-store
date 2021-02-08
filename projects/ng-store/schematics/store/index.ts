@@ -61,7 +61,7 @@ export function storeModule(options: any): Rule {
     }
 
     if (options.path === undefined) {
-      options.path = `${project.sourceRoot}/store`;
+      options.path = `${project.sourceRoot}/app/store`;
     }
 
     const templateSource = apply(url('./files'), [

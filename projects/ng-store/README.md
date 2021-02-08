@@ -1,24 +1,35 @@
-# NgStore
+# @dazzed/ng-store
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.13.
+The ng-store mixes the Vuex approach to application state management and the rxjs Observables in angular modules, as store modules.
 
-## Code scaffolding
+## Install
 
-Run `ng generate component component-name --project ng-store` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ng-store`.
-> Note: Don't forget to add `--project ng-store` or else it will be added to the default project in your `angular.json` file. 
+Run `@dazzed/ng-store`
 
-## Build
+## Setup Store
 
-Run `ng build ng-store` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `ng generate @dazzed/ng-store:store`
 
-## Publishing
+## Generate Store Modules
 
-After building your library with `ng build ng-store`, go to the dist folder `cd dist/ng-store` and run `npm publish`.
+Run `ng generate @dazzed/ng-store:module --name {entityName}`
 
-## Running unit tests
+## Update Model
 
-Run `ng test ng-store` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Update the entity model and initial state by going tothe new module folder inside the store and to the file {entityName}.ts and on this class define properties of this entity and the initial value of each oone of them.
 
-## Further help
+## Setup HTTP requests service
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Go to the `actions.service.ts` inside your new store module, import the service in your app that makes the http requests and call it in the loadMethod inside this actions service.
+
+Now you can create more actions (update, delete, create) for your entity and by calling the respective mutation you'll ahve the app state always updated.
+
+You can also, in the `getters.service`, create more specific or filtered getters with rxjs operators from the main state of your entity and use it to have your templates always updated by interpolating the getter observable with the async pipe in your components template:
+
+In your component's `.ts` file:
+
+> getter$ = getters.service.getter$
+
+In your component's template:
+
+> {{ getter$ | async }}

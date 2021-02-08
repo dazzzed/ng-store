@@ -10,6 +10,11 @@
       "description": "Generate a store module in the project.",
       "factory": "./module/index#storeModule",
       "schema": "./module/schema.json"
+    },
+      "ng-add": {
+      "description": "Add schematic",
+      "factory": "./ng-add/index",
+      "schema": "./module/schema.json"
     }
   }
 }

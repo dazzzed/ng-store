@@ -1,6 +1,7 @@
 {
-  "name": "ng-store",
-  "version": "0.0.0",
+  "name": "@dazzed/ng-store",
+  "version": "0.0.5",
+  "schematics": "./projects/ng-store/schematics/collection.json",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,7 +10,6 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "~9.1.9",
     "@angular/common": "~9.1.9",
@@ -19,6 +19,8 @@
     "@angular/platform-browser": "~9.1.9",
     "@angular/platform-browser-dynamic": "~9.1.9",
     "@angular/router": "~9.1.9",
+    "@dazzed/ng-store": "^0.0.4",
+    "ng-store": "^1.0.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
