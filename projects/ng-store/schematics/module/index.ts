@@ -85,7 +85,7 @@ export function storeModule(options: any): Rule {
     project: workspaces.ProjectDefinition
   ) {
     const content: Buffer | null = tree.read(
-      `${project.sourceRoot}/store/store.module.ts`
+      `${project.sourceRoot}/app/store/store.module.ts`
     );
 
     let strContent: string = '';
@@ -104,7 +104,7 @@ export function storeModule(options: any): Rule {
     );
 
     tree.overwrite(
-      `${project.sourceRoot}/store/store.module.ts`,
+      `${project.sourceRoot}/app/store/store.module.ts`,
       updatedContent
     );
   }
