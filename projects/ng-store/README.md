@@ -19,11 +19,11 @@ app
         |-- {EntityName}.ts
 ```
 
-Here's a quick definition of what each of that services are menat to do:
+Here's a quick definition of what each of that services are meant to do:
 
-**actions**: Makes calls to the HTTP services and sends the data in the response to the associated mutation.
+**actions**: Makes calls to the HTTP services and calls for a mutation with the data in the response to the associated mutation.
 
-**mutations**: Updates or makes mutations to the current state of the entity.
+**mutations**: Updates or makes mutations to the current state of the entity in the store.
 
 **getters**: Gives you access to the entity data in the store through a rxjs _BehaviorSubject_.
 
@@ -74,9 +74,9 @@ Update the entity model and initial state by going to the new module folder insi
 
 Go to the `actions.service.ts` inside your new store module, import the service in your app that makes the http requests and call it in the loadMethod inside this actions service.
 
-Now you can create more actions (update, delete, create) for your entity and by calling the respective mutation you'll ahve the app state always updated.
+Now you can create more actions (update, delete, create) for your entity and by calling the respective mutation you'll have the app state always updated.
 
-You can also, in the `getters.service`, create more specific or filtered getters with rxjs operators from the main state of your entity and use it to have your templates always updated by interpolating the getter observable with the async pipe in your components template:
+You can also, in the `getters.service`, create more specific or filtered getters with rxjs operators from the main state of your entity and use it to have your templates always updated by interpolating the getter observable with the async pipe in your component's template:
 
 In your component's `.ts` file:
 
